@@ -1,8 +1,8 @@
 defmodule Placehodor.ImageController do
   use Placehodor.Web, :controller
 
-  def index(conn, _params) do
-    %HTTPoison.Response{ body: image_bits } = HTTPoison.get!("http://i.lv3.hbo.com/assets/images/series/game-of-thrones/character/s5/hodor-1920.jpg")
+  def index(conn, %{"height" => height, "width" => width}) do
+    %HTTPoison.Response{ body: image_bits } = HTTPoison.get!(generate_cloudinary_url("hodor", width, height))
     conn
       |> put_resp_content_type("image/jpeg")
       |> send_resp 200, image_bits
