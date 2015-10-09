@@ -9,3 +9,7 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+
+Placehodor.Repo.insert!(%Placehodor.Image{name: "hodor"})
+Placehodor.Repo.insert!(%Placehodor.Image{name: "crazy_eyes"})
+Placehodor.Repo.insert!(%Placehodor.Image{name: "piggy_back"})
